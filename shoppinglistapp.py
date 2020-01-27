@@ -20,8 +20,17 @@ def help_function():
     # print out instructions on how to use the app
 print("Enter DONE to stop adding new items")
 print("Enter SHOW to view items that you have already added in the list")
-print("What would you like to pick up at the store?")
+print("Enter REMOVE to delete item from your list")
+print("What would you like to pick up at the grocery store?")
     
+def remove_from_list():
+     display_function()
+     item_to_remove = input("What would you like to remove?\n> ")
+     try:
+         shopping_list.remove(item_to_remove)
+     except ValueError: 
+        pass
+     display_function() 
 
 def add_function(new_item):
      display_function()
@@ -59,6 +68,8 @@ while True:
     elif new_item.upper() == "HELP":
         help_function()
         continue
+    elif new_item.upper() == "REMOVE":
+        remove_from_list()
     else:
         add_function(new_item)
 
