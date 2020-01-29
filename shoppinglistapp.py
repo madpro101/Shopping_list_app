@@ -5,7 +5,7 @@ shopping_list = []
 def clear_screen():
     os.system("cls" if os.name =='nt' else "clear")
 
-def display_function():
+def show_list():
     clear_screen()
     # print out the list
     print("here is your list my guy")
@@ -15,7 +15,7 @@ def display_function():
          index += 1
     print("-"*20)
     
-def help_function():
+def show_help():
     clear_screen()
     # print out instructions on how to use the app
 print("Enter DONE to stop adding new items")
@@ -24,16 +24,16 @@ print("Enter REMOVE to delete item from your list")
 print("What would you like to pick up at the grocery store?")
     
 def remove_from_list():
-     display_function()
+     show_list()
      item_to_remove = input("What would you like to remove?\n> ")
      try:
          shopping_list.remove(item_to_remove)
      except ValueError: 
         pass
-     display_function() 
+     show_list() 
 
 def add_function(new_item):
-     display_function()
+     show_list()
      if len(shopping_list):
         position = input("Where should I add {}\n"
                          "Press Enter to add item at the end of the list\n "
@@ -51,7 +51,7 @@ def add_function(new_item):
         shopping_list.append(new_item)
     # adding new item to list 
  
-     display_function()
+     show_list()
     
     
    
@@ -63,17 +63,17 @@ while True:
     if new_item.upper() == "DONE" or new_item.upper() =="QUIT":
         break
     elif new_item.upper() =="SHOW":
-         display_function()
+         show_list()
          continue
     elif new_item.upper() == "HELP":
-        help_function()
+        show_help()
         continue
     elif new_item.upper() == "REMOVE":
         remove_from_list()
     else:
         add_function(new_item)
 
-help_function()
+show_help()
     
          
   
