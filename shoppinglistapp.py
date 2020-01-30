@@ -8,11 +8,12 @@ def clear_screen():
 def show_list():
     clear_screen()
     # print out the list
-    print("here is your list my guy")
-    index = 1
-    for item in shopping_list:
+    print("Here is your list")
+
+    for index, item in enumerate(shopping_list, start = 1):
          print("{}. {}".format(index, item))
-         index += 1
+        
+         
     print("-"*20)
     
 def show_help():
